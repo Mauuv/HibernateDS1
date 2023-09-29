@@ -1,12 +1,10 @@
 package Entities;
 import  jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table (name = "WorldCupMatches")
 public class FinalCopaDoMundo {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "MatchID")
     private Long id;
     @Column(name = "Datetime")

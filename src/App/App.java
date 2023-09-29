@@ -11,7 +11,6 @@ import java.util.Optional;
 
 public class App {
     public static void main(String[] args) {
-
         //print all
         CopaDoMundoDAO copa = new CopaDoMundoDAO();
         imprimeLista(copa.buscaTodos());
@@ -138,9 +137,10 @@ public class App {
                                                  String fase, String cidade, int golsVisitante, String arbitro,
                                                  String abreviacaoMandante, String abreviacaoVisitante, CopaDoMundo copa)
     {
-        FinalCopaDoMundo finalCopa = new FinalCopaDoMundo();
         FinalCopaDoMundoDAO finalCopaDAO = new FinalCopaDoMundoDAO();
+        FinalCopaDoMundo finalCopa = new FinalCopaDoMundo();
 
+        finalCopa.setId(finalCopaDAO.geraId());
         finalCopa.setData(data);
         finalCopa.setEstadio(estadio);
         finalCopa.setGolsMandante(golsMandante);
@@ -154,6 +154,7 @@ public class App {
         finalCopa.setAbreviacaoVisitante(abreviacaoVisitante);
         finalCopa.setFase(fase);
         finalCopa.setCidade(cidade);
+
         return finalCopa;
     }
 }

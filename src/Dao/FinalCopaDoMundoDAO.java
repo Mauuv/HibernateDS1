@@ -10,7 +10,6 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
-//import java.util.List;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,5 +66,15 @@ public class FinalCopaDoMundoDAO {
         int anoCopa = finalCopa.getCopaDoMundo().getAno();
 
         return !finalCopaDoMundoDAO.buscaPorAno(new CopaDoMundo(anoCopa)).get().isEmpty();
+    }
+
+    public Long geraId() {
+        try (var em = getEntityManager()) {
+            String sql = "SELECT coalesce(max(id) , 0) + 1  FROM FinalCopaDoMundo";
+            var query = em.createQuery(sql, Long.class);
+            return query.getResultList().get(0);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

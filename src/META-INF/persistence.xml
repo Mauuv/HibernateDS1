@@ -14,7 +14,6 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.id.new_generator_mappings" value = "false"/>
             <!--  Para mostrar as queries SQL no console  -->
-            <!-- alterado de 'none' para 'update' - fez funcionar o auto. -->
             <property name="hibernate.hbm2ddl.auto" value="none"/>
             <!--  Atualiza automaticamente o esquema do banco de dados  -->
         </properties>
